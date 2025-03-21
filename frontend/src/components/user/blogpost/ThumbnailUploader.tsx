@@ -16,7 +16,7 @@ export const ThumbnailUploader: React.FC = () => {
 
   useEffect(() => {
     if (thumbnail) {
-          // @ts-expect-error
+          // @ts-expect-error: Type mismatch due to incomplete type definitions. Safe to ignore for now.
       const objectUrl = URL.createObjectURL(thumbnail);
       setThumbnailUrl(objectUrl);
       return () => {
@@ -30,7 +30,7 @@ export const ThumbnailUploader: React.FC = () => {
   const handleFileChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-          // @ts-expect-error
+          // @ts-expect-error: Type mismatch due to incomplete type definitions. Safe to ignore for now.
       dispatch(setThumbnail(file));
     }
   }, [dispatch]);

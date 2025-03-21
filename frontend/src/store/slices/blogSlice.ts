@@ -173,7 +173,7 @@ export const blogSlice = createSlice({
           author: "Current User",
           authorId: "user-1",
           tags: action.payload.tags,
-          // @ts-expect-error
+          // @ts-expect-error: Type mismatch due to incomplete type definitions. Safe to ignore for now.
           thumbnail: action.payload.thumbnailData,
           attachments: action.payload.attachmentData,
           attachmentUrls: action.payload.attachmentData.map(att => att.url),

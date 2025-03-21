@@ -61,7 +61,7 @@ export const Editor: React.FC = () => {
         const file = (e.target as HTMLInputElement).files?.[0];
         if (file) {
           const url = URL.createObjectURL(file);
-          // @ts-expect-error
+          // @ts-expect-error: Type mismatch due to incomplete type definitions. Safe to ignore for now.
           dispatch(addAttachment({ file, url }));
           const imageMarkdown = `![${file.name}](${url})`;
           api.replaceSelection(imageMarkdown);
