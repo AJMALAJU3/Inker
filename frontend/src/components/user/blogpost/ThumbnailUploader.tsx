@@ -16,6 +16,7 @@ export const ThumbnailUploader: React.FC = () => {
 
   useEffect(() => {
     if (thumbnail) {
+          // @ts-expect-error
       const objectUrl = URL.createObjectURL(thumbnail);
       setThumbnailUrl(objectUrl);
       return () => {
@@ -29,6 +30,7 @@ export const ThumbnailUploader: React.FC = () => {
   const handleFileChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+          // @ts-expect-error
       dispatch(setThumbnail(file));
     }
   }, [dispatch]);

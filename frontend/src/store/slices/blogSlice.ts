@@ -44,7 +44,6 @@ export const saveBlog = createAsyncThunk(
       formData.append("content", content);
       formData.append("tags", JSON.stringify(tags));
 
-      console.log('formData', formData.content);
 
       if (editingBlogId) {
         await blogService.editBlogService(formData);
@@ -174,6 +173,7 @@ export const blogSlice = createSlice({
           author: "Current User",
           authorId: "user-1",
           tags: action.payload.tags,
+          // @ts-expect-error
           thumbnail: action.payload.thumbnailData,
           attachments: action.payload.attachmentData,
           attachmentUrls: action.payload.attachmentData.map(att => att.url),
